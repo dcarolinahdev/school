@@ -1,0 +1,14 @@
+{% extends 'base_site.html' %}
+
+{% block content %}
+    <main>
+        {% for teacher in teachers %}
+            <article>
+                <h2><a href="{% url 'people:teacher_detail' pk=teacher.pk %}">{{ teacher.last_name }} {{ teacher.first_name }}</a></h2>
+                <p>{{ teacher.st_subject|linebreaksbr }}</p>
+            </article>
+        {% empty %}
+            <div class="empty-teachers">No teachers are available.</div>
+        {% endfor %}
+    </main>
+{% endblock %}
