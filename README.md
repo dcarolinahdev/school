@@ -2,14 +2,18 @@
 
 A personal school grading system  with Django
 
-### TODO
+### Current features
 
 - a postgresql database
-- django's ModelForms
-- function based views
 - generic ListView and DetailView
+- basic registrations of models in administrator site
+- basic admin site
+
+### TODO
+
+- django's ModelForms
 - custom registrations of models in administrator site
-- custom template on admin site
+- custom admin site
 - some django tests
-- managemenet users
+- managemenet users and groups
 - management media files
