@@ -1,9 +1,13 @@
+# Django
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.views import generic
 from django.http import HttpResponse
-
+# DRF
+from rest_framework import permissions, viewsets
+# Project
 from .models import Teacher, Student
+from people.serializers import TeacherSerializer
 
 
 class TeachersView(generic.ListView):
@@ -22,4 +26,10 @@ class DetailTeacherView(generic.DetailView):
         """
         return Teacher.objects.all()
 
-
+class TeachersViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows teachers to be viewed or edited.
+    """
+    queryset = Teacher.objects.all().order_by('last_name')
+    serializer_class = TeacherSerializer
+    permission_classes = [permissions.IsAuthenticated]
